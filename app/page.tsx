@@ -129,7 +129,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-xl font-bold font-space-grotesk hover:text-primary transition-colors cursor-pointer">
-              Muhammad Arkan Adli
+              
             </h1>
             <div className="hidden md:flex space-x-6">
               <a
@@ -422,7 +422,7 @@ export default function Portfolio() {
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     width={600}
-                    height={400}
+                    height={100}
                     className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500 p-4"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
