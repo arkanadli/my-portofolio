@@ -472,7 +472,7 @@ export default function Portfolio() {
                 className="hover:shadow-lg hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 cursor-pointer"
               >
                 <CardHeader>
-                  <CardTitle className="text-lg font-space-grotesk group-hover:text-primary transition-colors duration-300">
+                  <CardTitle className="text-lg font-space-grotesk text-primary transition-colors duration-300">
                     {skillGroup.category}
                   </CardTitle>
                 </CardHeader>
@@ -497,11 +497,10 @@ export default function Portfolio() {
 
       <section id="contact" className="py-16 px-6">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-bold font-space-grotesk text-center mb-12 hover:text-primary transition-colors duration-300">
+          <h2 className="text-4xl font-bold font-space-grotesk text-center mb-8 hover:text-primary transition-colors duration-300">
             Get In Touch
           </h2>
           <div className="text-center">
-            <h3 className="text-2xl font-semibold font-space-grotesk mb-6">Let's Work Together</h3>
             <p className="text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
             I am currently seeking full-time opportunities to contribute my skills to challenging software engineering roles. I am also open to freelance projects and collaborations.
             </p>
