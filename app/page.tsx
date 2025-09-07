@@ -288,7 +288,7 @@ export default function Portfolio() {
             About Me
           </h2>
           <div className="text-center mb-8">
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-pretty">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-pretty text-justify">
               As a recent Informatics graduate, I specialize in building and deploying full-stack web, mobile, and
               cloud applications. I have a track record of delivering impactful solutions, including contributing to the
               development of the HealthyOne application, now successfully used in over 100 pharmacies, where I
