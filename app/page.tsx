@@ -218,16 +218,16 @@ export default function Portfolio() {
                 </span>
               </div>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 text-pretty leading-relaxed">
-                Fresh Graduate Software Engineer passionate about{" "}
+              Seeking to build an impactful career as an Informatics graduate, bringing over a year of hands-on professional experience in{" "}
                 <span className="text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                  Artificial Intelligence
+                Artificial Intelligence
                 </span>{" "}
                 and
                 <span className="text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                  {" "}
-                  Full Stack Development
+                {" "}
+                Full-Stack Development
                 </span>
-                . Delivered impactful solutions across 100+ deployments with 70% efficiency improvements.
+                . My goal is to contribute to innovative projects where I can apply my skills to improve efficiency and support large-scale deployments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
                 <Button
