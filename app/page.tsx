@@ -111,7 +111,7 @@ export default function Portfolio() {
       description:
         "IoT-based air quality monitoring with real-time data visualization and historical analytics",
       tech: ["Flutter", "PHP", "MySQL", "MQTT", "IoT"],
-      status: "Complete",
+      status: "Deployed",
       image: "/images/projects/atmostrack.png",
       url: "https://github.com/arkanadli/Atmostrack",
     },
