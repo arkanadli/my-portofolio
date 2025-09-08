@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -27,20 +28,20 @@ export default function Portfolio() {
     message: "",
   })
 
-  const profilePhoto = "/images/arkan-new-profile.jpg"
+  // Profile photo with fallback on error
+  const initialPhoto = "/images/arkan-new-profile.jpg"
+  const [photoSrc, setPhotoSrc] = useState(initialPhoto)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    // Create mailto link with form data
     const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`)
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
+    )
     const mailtoLink = `mailto:m.arkan.adli@gmail.com?subject=${subject}&body=${body}`
 
-    // Open email client
     window.location.href = mailtoLink
-
-    // Reset form
     setFormData({ name: "", email: "", message: "" })
   }
 
@@ -61,7 +62,7 @@ export default function Portfolio() {
       period: "July 2024 – August 2024",
       type: "Internship",
       description:
-        "Delivered HealthyOne application deployed across 100+ pharmacies. Developed Payment Gateway and digital wallet features with integrated QRIS payment methods.",
+        "Delivered HealthyOne application deployed across 100+ pharmacies. Developed payment gateway and digital wallet features with integrated QRIS payment methods.",
       technologies: ["Flutter", "Django", "PostgreSQL", "Payment APIs", "QRIS"],
       icon: <Code className="h-5 w-5" />,
     },
@@ -85,27 +86,34 @@ export default function Portfolio() {
       tech: ["Node.js", "Express.js", "MongoDB Atlas", "Mapbox API", "Vercel"],
       status: "Deployed",
       image: "/images/projects/campsite-explorer.png",
+      url: "https://github.com/arkanadli/Campsite-Explorer",
     },
     {
       title: "HealthyOne App",
-      description: "Payment gateway and digital wallet system deployed across 100+ pharmacies under Pharos Group",
+      description:
+        "Payment gateway and digital wallet system deployed across 100+ pharmacies under Pharos Group",
       tech: ["Flutter", "Django", "PostgreSQL", "Payment APIs"],
       status: "Production",
       image: "/images/projects/healthyone.png",
+      url: "", // private project → empty means show disabled button
     },
     {
       title: "Adaptive Learning Platform",
-      description: "Web-based platform for elementary students with personalized study materials and progress tracking",
+      description:
+        "Web-based platform for elementary students with personalized study materials and progress tracking",
       tech: ["React.js", "Laravel", "MySQL", "AWS", "Docker"],
       status: "Deployed",
       image: "/images/projects/adaptive-learning.png",
+      url: "https://github.com/arkanadli/adaptive-learning-frontend",
     },
     {
       title: "Atmostrack IoT System",
-      description: "IoT-based air quality monitoring with real-time data visualization and historical analytics",
+      description:
+        "IoT-based air quality monitoring with real-time data visualization and historical analytics",
       tech: ["Flutter", "PHP", "MySQL", "MQTT", "IoT"],
       status: "Complete",
       image: "/images/projects/atmostrack.png",
+      url: "https://github.com/arkanadli/Atmostrack",
     },
   ]
 
@@ -126,43 +134,36 @@ export default function Portfolio() {
       <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm border-b border-border z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold font-space-grotesk hover:text-primary transition-colors cursor-pointer">
-            </h1>
+            <h1 className="text-xl font-bold font-space-grotesk hover:text-primary transition-colors cursor-pointer" />
             <div className="hidden md:flex space-x-6">
-              <a
-                href="#about"
-                className="hover:text-primary transition-all duration-300 hover:scale-105 relative group"
-              >
+              <a href="#about" className="hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 About
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
               <a
                 href="#experience"
                 className="hover:text-primary transition-all duration-300 hover:scale-105 relative group"
               >
                 Experience
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
               <a
                 href="#projects"
                 className="hover:text-primary transition-all duration-300 hover:scale-105 relative group"
               >
                 Projects
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
-              <a
-                href="#skills"
-                className="hover:text-primary transition-all duration-300 hover:scale-105 relative group"
-              >
+              <a href="#skills" className="hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Skills
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
               <a
                 href="#contact"
                 className="hover:text-primary transition-all duration-300 hover:scale-105 relative group"
               >
                 Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             </div>
           </div>
@@ -176,20 +177,17 @@ export default function Portfolio() {
             {/* Profile Photo */}
             <div className="relative">
               <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
                 <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-1 shadow-2xl overflow-hidden hover:shadow-primary/20 transition-all duration-500">
                   <div className="relative w-full h-full">
                     <Image
-                      src={profilePhoto || "/placeholder.svg"}
+                      src={photoSrc || "/placeholder.svg"}
                       alt="Muhammad Arkan Adli"
                       width={400}
                       height={400}
                       className="rounded-xl object-cover w-full h-full"
                       priority
-                      onError={(e) => {
-                        console.log("[v0] Image load error:", e)
-                        e.currentTarget.src = "/professional-developer-portrait.png"
-                      }}
+                      onError={() => setPhotoSrc("/professional-developer-portrait.png")}
                     />
                   </div>
                 </div>
@@ -218,16 +216,18 @@ export default function Portfolio() {
                 </span>
               </div>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 text-pretty leading-relaxed">
-              Seeking to build an impactful career as an Informatics graduate, bringing over a year of hands-on professional experience in{" "}
+                Seeking to build an impactful career as an Informatics graduate, bringing over a year of hands-on
+                professional experience in{" "}
                 <span className="text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                Artificial Intelligence
+                  Artificial Intelligence
                 </span>{" "}
                 and
                 <span className="text-primary font-medium hover:text-blue-400 transition-colors duration-300">
-                {" "}
-                Full-Stack Development
+                  {" "}
+                  Full-Stack Development
                 </span>
-                . My goal is to contribute to innovative projects where I can apply my skills to improve efficiency and support large-scale deployments.
+                . My goal is to contribute to innovative projects where I can apply my skills to improve efficiency and
+                support large-scale deployments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
                 <Button
@@ -289,10 +289,10 @@ export default function Portfolio() {
           </h2>
           <div className="text-center mb-8">
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-pretty text-justify">
-              As a recent Informatics graduate, I specialize in building and deploying full-stack web, mobile, and
-              cloud applications. I have a track record of delivering impactful solutions, including contributing to the
+              As a recent Informatics graduate, I specialize in building and deploying full-stack web, mobile, and cloud
+              applications. I have a track record of delivering impactful solutions, including contributing to the
               development of the HealthyOne application, now successfully used in over 100 pharmacies, where I
-              Integrate Payment APIs and digital wallet features. At PT XLSmart, I prototyped an AI-based Visual
+              integrated payment APIs and digital wallet features. At PT XLSmart, I prototyped an AI-based Visual
               Inspection Platform projected to reduce processing time by up to 70% and cut development costs by 40%. My
               experience also includes building applications from concept to deployment, utilizing modern technologies
               like React.js, Laravel, AWS, and Docker with CI/CD pipelines. I am passionate about solving complex
@@ -339,13 +339,13 @@ export default function Portfolio() {
           </h2>
           <div className="max-w-4xl mx-auto relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
 
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div key={index} className="relative">
                   {/* Timeline dot */}
-                  <div className="absolute left-6 top-8 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg hidden md:block"></div>
+                  <div className="absolute left-6 top-8 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg hidden md:block" />
 
                   <Card className="group hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 border-2 hover:border-primary/30 overflow-hidden md:ml-16">
                     <CardHeader className="pb-4">
@@ -416,7 +416,7 @@ export default function Portfolio() {
                     height={400}
                     className="object-contain w-full h-full max-h-full group-hover:scale-110 transition-all duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
                 </div>
                 <CardHeader>
                   <div className="flex justify-between items-start">
@@ -444,14 +444,32 @@ export default function Portfolio() {
                       </Badge>
                     ))}
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="group-hover:text-primary group-hover:bg-primary/10 font-jetbrains transition-all duration-300 hover:scale-105"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
-                    View Details
-                  </Button>
+
+                  {/* View Details button: opens link if available, else disabled as Private Project */}
+                  {project.url ? (
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="group-hover:text-primary group-hover:bg-primary/10 font-jetbrains transition-all duration-300 hover:scale-105"
+                    >
+                      <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform duration-300" />
+                        View Details
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      disabled
+                      title="Private project"
+                      className="font-jetbrains"
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Private Project
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -465,7 +483,7 @@ export default function Portfolio() {
           <h2 className="text-4xl font-bold font-space-grotesk text-center mb-12 hover:text-primary transition-colors duration-300">
             Technical Skills
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skillGroup, index) => (
               <Card
                 key={index}
@@ -502,7 +520,7 @@ export default function Portfolio() {
           </h2>
           <div className="text-center">
             <p className="text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
-            I am currently seeking full-time opportunities to contribute my skills to challenging software engineering roles. I am also open to freelance projects and collaborations.
+              I am currently seeking full-time opportunities to contribute my skills to challenging software engineering roles. I am also open to freelance projects and collaborations.
             </p>
             <div className="flex flex-col md:flex-row justify-center items-center gap-8">
               <a
