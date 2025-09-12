@@ -173,7 +173,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6">
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12 max-w-6xl mx-auto">
             {/* Profile Photo */}
             <div className="relative">
               <div className="relative w-80 h-80 lg:w-96 lg:h-96">
@@ -185,12 +185,12 @@ export default function Portfolio() {
                         alt="Muhammad Arkan Adli"
                         width={400}
                         height={400}
-                        className="rounded-xl object-cover object-top w-full h-full"
+                        className="rounded-xl object-cover object-center w-full h-full"
                         priority
                         onError={() => setPhotoSrc("/professional-developer-portrait.png")}
                         />
                     </div>
-                </div>
+                    </div>
                 {/* Floating tech icons */}
                 <div className="absolute -top-4 -right-4 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-lg p-3 hover:bg-primary/20 hover:scale-110 transition-all duration-300 cursor-pointer">
                   <Brain className="h-6 w-6 text-primary" />
@@ -203,7 +203,7 @@ export default function Portfolio() {
 
             {/* Content */}
             <div className="flex-1 text-center lg:text-left">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-space-grotesk mb-6 text-balance">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-space-grotesk mb-6 text-balance" >
                 Muhammad
                 <span className="text-primary block font-jetbrains hover:scale-105 transition-transform duration-300 cursor-default">
                   Arkan Adli
