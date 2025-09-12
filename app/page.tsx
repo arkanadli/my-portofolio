@@ -179,17 +179,17 @@ export default function Portfolio() {
               <div className="relative w-80 h-80 lg:w-96 lg:h-96">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-blue-600/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
                 <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-1 shadow-2xl overflow-hidden hover:shadow-primary/20 transition-all duration-500">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={photoSrc || "/placeholder.svg"}
-                      alt="Muhammad Arkan Adli"
-                      width={400}
-                      height={400}
-                      className="rounded-xl object-cover w-full h-full"
-                      priority
-                      onError={() => setPhotoSrc("/professional-developer-portrait.png")}
-                    />
-                  </div>
+                    <div className="relative w-[400px] h-[400px]">
+                        <Image
+                        src={photoSrc || "/placeholder.svg"}
+                        alt="Muhammad Arkan Adli"
+                        width={400}
+                        height={400}
+                        className="rounded-xl object-cover object-top w-full h-full"
+                        priority
+                        onError={() => setPhotoSrc("/professional-developer-portrait.png")}
+                        />
+                    </div>
                 </div>
                 {/* Floating tech icons */}
                 <div className="absolute -top-4 -right-4 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-lg p-3 hover:bg-primary/20 hover:scale-110 transition-all duration-300 cursor-pointer">
