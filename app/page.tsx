@@ -173,7 +173,7 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6">
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12 max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-20 lg:gap-12 max-w-6xl mx-auto">
             {/* Profile Photo */}
             <div className="relative">
               <div className="relative w-80 h-80 lg:w-96 lg:h-96">
@@ -185,7 +185,7 @@ export default function Portfolio() {
                         alt="Muhammad Arkan Adli"
                         width={400}
                         height={400}
-                        className="rounded-xl object-cover object-center w-full h-full"
+                        className="rounded-xl object-center object-top w-full h-full"
                         priority
                         onError={() => setPhotoSrc("/professional-developer-portrait.png")}
                         />
